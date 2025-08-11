@@ -6,13 +6,16 @@ let amigos = [];
 // Função para adicionar nomes
 function adicionarAmigo() {
     let input = document.getElementById("amigo");
-    let nome = input.value.trim();
+    let nome = input.value;
 
-    // Validação: campo não pode estar vazio
-    if (nome === "") {
-        alert("Por favor, digite um nome válido!");
+    // Validação: não pode começar vazio nem ser só espaços
+    if (nome.trim() === "" || nome[0] === " ") {
+        alert("Por favor, digite um nome válido que não comece com espaço!");
         return;
     }
+
+    // Remove espaços extras antes e depois
+    nome = nome.trim();
 
     // Adiciona ao array
     amigos.push(nome);
